@@ -16,7 +16,7 @@ import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { db, ALUNO_ID } from '../firebase/config';
 
 
-export default function NewCallScreen() {
+export default function NewCallScreen({ navigation }: any) {
   // Estados: "caixinhas" que guardam o que o usuário digita ou a foto que escolhe
   const [description, setDescription] = useState('');
   const [photoUri, setPhotoUri] = useState<string | null>(null);
@@ -127,6 +127,7 @@ async function handleCreateCall() {
     setDescription('');
     setPhotoUri(null);
     setAddress(null);
+    navigation.navigate('CallList');
   } catch (error) {
     Alert.alert('Erro', 'Não foi possível salvar o chamado. Tente novamente.');
   } finally {
