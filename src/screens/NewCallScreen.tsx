@@ -39,8 +39,6 @@ export default function NewCallScreen({ navigation }: any) {
       return;
     }
 
-    const [saving, setSaving] = useState(false);
-
     // 2. Abre a câmera
     const result = await ImagePicker.launchCameraAsync({
       allowsEditing: true, // Permite cortar a foto
